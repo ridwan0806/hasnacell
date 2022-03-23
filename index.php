@@ -8,6 +8,6 @@
 <body>
 <h1>Halaman Index</h1>
 <a href="viewproduk.php">Data Produk</a><br></br>
-<a href="viewtrx.php">Data Transaksi</a><br></br>
+<a href="viewTrx.php">Data Transaksi</a><br></br>
 </body>
 </html>

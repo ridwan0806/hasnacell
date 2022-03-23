@@ -66,7 +66,34 @@ function editProduk($data){
 	return mysqli_affected_rows($conn);
 }
 
+function summaryTrx($query){
+	global $conn;
 
+	$result = mysqli_query($conn,$query);
+	$rows = [];
+	while ($row = mysqli_fetch_assoc($result) ) {
+		$rows[] = $row;
+	}
+	return $rows;
+
+}
+
+// bagian transaksi penjualan
+function tambahDataTransaksi($data) {
+	global $conn;
+
+	$tgl = $data["tanggal"];
+	$idProduk = $data["id_produk"];
+	$qty = htmlspecialchars($data["qty"]);
+	$totHpp = $data["tot_hpp"];
+	$totLaba = $data["tot_laba"];
+	$totTrx = $data["tot_trx"];
+
+	$query = "INSERT INTO transaksi VALUES('','$tgl','$idProduk','$qty','$totHpp','$totLaba','$totTrx')";
+
+	mysqli_query($conn,$query);
+	return mysqli_affected_rows($conn);
+}
 
 
 
